@@ -231,7 +231,7 @@ public class ExplorerSearchTest {
 
     //Method I noticed in the testing part of salamander on our introduction to this type of DSA.
     /*
-     * Method returns a set, utilizes a (List) paramter.
+     * Method returns a set, utilizes a (List) parameter.
      * intiliazes set,
      * loops through values of given values in list
      * added to the set as a (String) in the format (Example,Example) (1,1)
