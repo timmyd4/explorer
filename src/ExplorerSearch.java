@@ -35,13 +35,13 @@ public class ExplorerSearch {
         return -1;
     }
 
-    public static int[] explorableLocations(char[][] island)
+    public static int[] explorableLocations(int[][] island)
     {
         for(int r = 0; r < island.length; r++)
         {
             for(int c = 0; c < island[0].length; c++)
             {
-                if(island[r][c] == 1)
+                if(island[r][c] == 0)
                 {
                     int[] location = new int[]{r, c};
                     return location;
