@@ -32,8 +32,28 @@ public class ExplorerSearch {
         // Implement your method here!
         // Please also make more test cases
         // I STRONGLY RECOMMEND testing some helpers you might make too
+
+        int[] start = explorableLocations(island);
+        int count = 0;
+
+
         return -1;
     }
+
+    public static int reachableArea(int[][] island, int[] current, int count)
+    {
+        int curR = current[0];
+        int curC = current[1];
+
+        if(island[curR][curC] == 1)
+        {
+            count++;
+        }
+
+
+        return -1;
+    }
+
 
     public static List<int[]> explorableMoves(int[][] island, int[] current)
     {
