@@ -42,6 +42,56 @@ public class ExplorerSearchTest {
         assertTrue(moveSet.contains("1,2"));
     }
 
+    @Test
+    public void testExplorableMoves_HalfAvailable()
+    {
+        int[][] island = {
+            {3,2,3},
+            {2,0,1},
+            {3,1,2}
+        };
+
+        int[] location = {1,1};
+        List<int[]> moves = ExplorerSearch.explorableMoves(island, location);
+        Set<String> moveSet = toSet(moves);
+
+        assertEquals(2, moves.size());
+        assertTrue(moveSet.contains("2,1"));
+        assertTrue(moveSet.contains("1,2"));
+    }
+
+    @Test
+    public void testExplorableMoves_HalfAvailableStartingTopLeft()
+    {
+        int[][] island = {
+            {0,1,3},
+            {1,3,3},
+            {3,2,2}
+        };
+
+        int[] location = {0,0};
+        List<int[]> moves = ExplorerSearch.explorableMoves(island, location);
+        Set<String> moveSet = toSet(moves);
+
+        assertEquals(2, moves.size());
+        assertTrue(moveSet.contains("0,1"));
+        assertTrue(moveSet.contains("1,0"));
+    }
+
+    @Test
+    public void testExplorableMoves_noMoves()
+    {
+        int[][] island = {
+            {0,2,3},
+            {3,3,3},
+            {3,2,2}
+        };
+
+        int[] location = {0,0};
+        List<int[]> moves = ExplorerSearch.explorableMoves(island, location);
+        assertTrue(moves.isEmpty());
+    }
+
 
     /*
      * Explore location 
