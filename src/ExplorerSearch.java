@@ -35,14 +35,19 @@ public class ExplorerSearch {
         return -1;
     }
 
-    public static int[] explorableLocations(char[][] area)
+    public static int[] explorableLocations(char[][] island)
     {
-        for(int r = 0; r < area.length; r++)
+        for(int r = 0; r < island.length; r++)
         {
-            for(int c = 0; c < area[0].length; c++)
+            for(int c = 0; c < island[0].length; c++)
             {
-                if()
+                if(island[r][c] == 1)
+                {
+                    int[] location = new int[]{r, c};
+                    return location;
+                }
             }
         }
+        throw new IllegalArgumentException("No Explorer found");
     }
 }
