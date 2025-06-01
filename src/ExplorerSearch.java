@@ -34,22 +34,22 @@ public class ExplorerSearch {
         // I STRONGLY RECOMMEND testing some helpers you might make too
 
         int[] start = explorableLocations(island);
-        int count = 0;
+        boolean[][] visited = new boolean[island.length][island[0].length];
 
 
         return -1;
     }
 
-    public static int reachableArea(int[][] island, int[] current, int count)
+    public static int reachableArea(int[][] island, int[] current, boolean[][] visited)
     {
         int curR = current[0];
         int curC = current[1];
 
-        if(island[curR][curC] == 1)
-        {
-            count++;
-        }
+        if(curR < 0 || curR < island.length || curC < 0 || curC >= island[0].length) return 0;
+        if(visited[curR][curC] || island[curR][curC] != 1) return 0;
 
+        visited[curR][curC] = true;
+        int count = 1;
 
         return -1;
     }
