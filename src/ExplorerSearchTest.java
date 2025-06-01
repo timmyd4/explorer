@@ -20,7 +20,11 @@ public class ExplorerSearchTest {
         assertEquals(14, actual);
     }
 
-
+    /*
+     * Explore Moves
+     * Tests: 4
+     * Author: Tim Williams
+     */
 
     @Test
     public void testExplorableMoves_AllDirections()
