@@ -34,4 +34,15 @@ public class ExplorerSearch {
         // I STRONGLY RECOMMEND testing some helpers you might make too
         return -1;
     }
+
+    public static int[] explorableLocations(char[][] area)
+    {
+        for(int r = 0; r < area.length; r++)
+        {
+            for(int c = 0; c < area[0].length; c++)
+            {
+                if()
+            }
+        }
+    }
 }
