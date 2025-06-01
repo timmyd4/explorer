@@ -20,6 +20,12 @@ public class ExplorerSearchTest {
         assertEquals(14, actual);
     }
 
+    /*
+     * Reachable Area
+     * Tests: 3
+     * Author: Tim Williams
+     */
+
     @Test
     public void testReachableArea_allReachable() {
         int[][] island = {
@@ -44,6 +50,18 @@ public class ExplorerSearchTest {
         assertEquals(17, actual);
     }
 
+    @Test
+    public void testReachableArea_mostUnreachable() {
+        int[][] island = {
+            {3,2,1,1,1},
+            {1,2,1,2,1},
+            {1,2,3,2,1},
+            {1,1,0,2,1},
+            {3,2,1,3,1},
+        };
+        int actual = ExplorerSearch.reachableArea(island);
+        assertEquals(6, actual);
+    }
 
     /*
      * Explore Moves
@@ -209,6 +227,16 @@ public class ExplorerSearchTest {
     // Add more tests here!
     // Come up with varied cases
 
+
+
+    //Method I noticed in the testing part of salamander on our introduction to this type of DSA.
+    /*
+     * Method returns a set, utilizes a (List) paramter.
+     * intiliazes set,
+     * loops through values of given values in list
+     * added to the set as a (String) in the format (Example,Example) (1,1)
+     * returns set for us to compare with our assetEquals
+     */
      private Set<String> toSet(List<int[]> list) {
         Set<String> set = new HashSet<>();
         for (int[] arr : list) {
