@@ -30,6 +30,53 @@ public class ExplorerSearchTest {
         assertArrayEquals(expected, actual);
     }
 
+    @Test
+    public void testExploreLocation_TopMiddleOfGrid()
+    {
+        int[][] island = {
+            {1,1,1,0,1,1,1},
+            {1,1,1,1,1,1,1},
+            {1,1,1,1,1,1,1},
+            {1,1,1,1,1,1,1},
+            {1,1,1,1,1,1,1},
+        };
+        int[] actual = ExplorerSearch.explorableLocations(island);
+        int[] expected = {0,3};
+        assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    public void testExploreLocation_BottomRightOfGrid()
+    {
+        int[][] island = {
+            {1,1,1,1,1,1,1},
+            {1,1,1,1,1,1,1},
+            {1,1,1,1,1,1,1},
+            {1,1,1,1,1,1,1},
+            {1,1,1,1,1,1,0},
+        };
+        int[] actual = ExplorerSearch.explorableLocations(island);
+        int[] expected = {4,6};
+        assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    public void testExploreLocation_TopRightOfGrid()
+    {
+        int[][] island = {
+            {1,1,1,1,1,1,0},
+            {1,1,1,1,1,1,1},
+            {1,1,1,1,1,1,1},
+            {1,1,1,1,1,1,1},
+            {1,1,1,1,1,1,1},
+        };
+        int[] actual = ExplorerSearch.explorableLocations(island);
+        int[] expected = {0,6};
+        assertArrayEquals(expected, actual);
+    }
+
+
+
     // Add more tests here!
     // Come up with varied cases
 }
