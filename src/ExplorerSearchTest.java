@@ -15,6 +15,17 @@ public class ExplorerSearchTest {
         assertEquals(14, actual);
     }
 
+
+
+
+
+
+    /*
+     * Explore location 
+     * Tests: 4
+     * Author: Tim Williams
+     */
+
     @Test
     public void testExploreLocation_MiddleOfGrid()
     {
@@ -73,6 +84,22 @@ public class ExplorerSearchTest {
         int[] actual = ExplorerSearch.explorableLocations(island);
         int[] expected = {0,6};
         assertArrayEquals(expected, actual);
+    }
+
+
+    @Test
+    public void testExploreLocation_NoValidLocation()
+    {
+        int[][] island = {
+            {1,1,1,1,1,1,1},
+            {1,1,1,1,1,1,1},
+            {1,1,1,1,1,1,1},
+            {1,1,1,1,1,1,1},
+            {1,1,1,1,1,1,1},
+        };
+        assertThrows(IllegalArgumentException.class, () -> {
+            ExplorerSearch.explorableLocations(island);
+        });
     }
 
 
