@@ -35,6 +35,51 @@ public class ExplorerSearch {
         return -1;
     }
 
+    public static List<int[]> explorableMoves(int[][] island, int[] current)
+    {
+        //Create List
+        List<int[]> moves = new ArrayList<>();
+
+        //Init rows and columns
+        int curR = current[0];
+        int curC = current[1];
+
+        //Up
+        int newR = curR - 1;
+        int newC = curC;
+        if(newR >= 0 && island[newR][newC] != 2 || island[newR][newC] != 3)
+        {
+            moves.add(new int[]{newR, newC});
+        }
+
+        //Down
+        newR = curR + 1;
+        newC = curC;
+        if(newR < island.length && island[newR][newC] != 2 || island[newR][newC] != 3)
+        {
+            moves.add(new int[]{newR, newC});
+        }
+
+        //Left
+        newR = curR;
+        newC = curC - 1;
+        if(newC >= 0 && island[newR][newC] != 2 || island[newR][newC] != 3)
+        {
+            moves.add(new int[]{newR, newC});
+        }
+
+        //Right
+        newR = curR;
+        newC = curC + 1;
+        if(newC < island[newR].length && island[newR][newC] != 2 || island[newR][newC] != 3)
+        {
+            moves.add(new int[]{newR, newC});
+        }
+
+
+        return moves;
+    }
+
     public static int[] explorableLocations(int[][] island)
     {
         for(int r = 0; r < island.length; r++)
