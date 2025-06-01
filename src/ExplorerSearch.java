@@ -37,21 +37,40 @@ public class ExplorerSearch {
         boolean[][] visited = new boolean[island.length][island[0].length];
 
 
-        return -1;
+        return reachableArea(island, start, visited);
     }
 
     public static int reachableArea(int[][] island, int[] current, boolean[][] visited)
     {
+        //current = {1,1}
+
+        // vistied =
+        //  0      1      2 
+        //0 false, false, false
+        //1 false, false, false -> value would grab the middle of this row
+        //2 false, false, false
+
+        //island = 
+        // 1, 1, 1
+        // 1, 0, 1
+        // 1, 1, 1
+
         int curR = current[0];
         int curC = current[1];
 
-        if(curR < 0 || curR < island.length || curC < 0 || curC >= island[0].length) return 0;
-        if(visited[curR][curC] || island[curR][curC] != 1) return 0;
+        if(curR < 0 || curR >= island.length || curC < 0 || curC >= island[0].length) return 0;
+        if(visited[curR][curC] || (island[curR][curC] != 1 && island[curR][curC] != 0)) return 0;
 
         visited[curR][curC] = true;
         int count = 1;
 
-        return -1;
+
+        count += reachableArea(island, new int[]{curR - 1, curC}, visited); // up
+        count += reachableArea(island, new int[]{curR + 1, curC}, visited); // down
+        count += reachableArea(island, new int[]{curR, curC - 1}, visited); // left
+        count += reachableArea(island, new int[]{curR, curC + 1}, visited); // right
+
+        return count;
     }
 
 

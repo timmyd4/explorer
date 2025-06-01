@@ -20,6 +20,31 @@ public class ExplorerSearchTest {
         assertEquals(14, actual);
     }
 
+    @Test
+    public void testReachableArea_allReachable() {
+        int[][] island = {
+            {1,1,1},
+            {1,0,1},
+            {1,1,1},
+        };
+        int actual = ExplorerSearch.reachableArea(island);
+        assertEquals(9, actual);
+    }
+
+    @Test
+    public void testReachableArea_mostReachable() {
+        int[][] island = {
+            {3,2,1,1,1},
+            {1,1,1,2,1},
+            {1,2,3,2,1},
+            {1,1,0,2,1},
+            {1,2,1,1,1},
+        };
+        int actual = ExplorerSearch.reachableArea(island);
+        assertEquals(17, actual);
+    }
+
+
     /*
      * Explore Moves
      * Tests: 4
